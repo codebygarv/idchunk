@@ -1,6 +1,6 @@
 const values = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-';
 
-const generateRandom = (length) =>{
+const idchunk = (length) =>{
     length = length || 10;
     let result = '';
     const valuesLength = values.length;
@@ -12,6 +12,5 @@ const generateRandom = (length) =>{
     return result;
 }
 
-const randomNumber = generateRandom(3);
-
-console.log(Math.random());
+const randomNumber = idchunk(3);
+module.exports = idchunk;
