@@ -1,0 +1,17 @@
+{
+  "name": "idchunk",
+  "version": "1.0.0",
+  "description": "A tiny, fast and customizable ID generator like NanoID.",
+  "main": "src/index.js",
+  "keywords": ["id", "nanoid", "generator", "random", "unique", "uid"],
+  "author": "Garv Thakral",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/your-id-generator-name"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/your-id-generator-name/issues"
+  },
+  "homepage": "https://github.com/yourusername/your-id-generator-name#readme"
+}
