@@ -1,16 +1,29 @@
 {
   "name": "idchunk",
-  "version": "1.0.1",
-  "description": "A tiny, fast and customizable ID generator ",
+  "version": "2.0.0",
+  "description": "Tiny, Fast & Customizable ID Generator",
   "main": "src/index.js",
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node test/index.test.js",
+    "release": "npm version"
+  },
   "keywords": [
     "id",
-    "nanoid",
     "generator",
-    "random",
-    "unique",
-    "uid"
+    "crypto",
+    "uuid",
+    "shortid",
+    "random"
   ],
   "author": "Garv Thakral",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codebygarv/idchunk.git"
+  }
 }

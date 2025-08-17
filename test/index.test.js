@@ -1,3 +1,4 @@
 const idchunk = require('../src/index.js');
 
-console.log("Generated ID:", idchunk(6));
+const customValues = '000';
+console.log(idchunk()); 

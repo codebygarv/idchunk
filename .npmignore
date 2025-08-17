@@ -1,0 +1,30 @@
+# Ignore unnecessary files & folders
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Development / build stuff
+test/
+tests/
+__tests__/
+coverage/
+example/
+examples/
+demo/
+scripts/
+
+# Config files
+*.env
+*.local
+*.config.js
+*.config.cjs
+*.config.mjs
+*.config.ts
+*.log
+
+# Git / CI files
+.gitignore
+.gitattributes
+.github/
+.vscode/
+.idea/
