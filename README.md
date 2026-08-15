@@ -1,18 +1,20 @@
 # ⚡ idchunk — Tiny, Fast & Customizable ID Generator
 
 [![npm version](https://img.shields.io/npm/v/idchunk.svg)](https://www.npmjs.com/package/idchunk)
+[![CI](https://github.com/codebygarv/idchunk/actions/workflows/ci.yml/badge.svg)](https://github.com/codebygarv/idchunk/actions)
 [![npm downloads](https://img.shields.io/npm/dt/idchunk.svg)](https://www.npmjs.com/package/idchunk)
 [![license](https://img.shields.io/npm/l/idchunk.svg)](https://github.com/codebygarv/idchunk/blob/main/LICENSE)
 [![types](https://img.shields.io/badge/types-TypeScript-blue.svg)](https://github.com/codebygarv/idchunk)
 
-> A lightweight, zero-dependency, and cryptographically uniform ID generator for Node.js, Browsers, Bun, Deno, and Edge Workers.
+> A lightweight, zero-dependency, and cryptographically uniform ID generator for Node.js, Browsers, Bun, Deno, Edge Workers, and the Terminal.
 
 ---
 
 ## ✨ Features
 
-- **⚡ Blazing Fast:** Pre-allocated buffer generation with zero overhead.
-- **🔒 Cryptographically Secure:** Zero modulo bias using rejection sampling and hardware crypto (`crypto.getRandomValues` / `node:crypto`).
+- **⚡ Blazing Fast:** Pre-allocated buffer generation (~280,000+ ops/sec).
+- **🔒 Cryptographically Secure:** Zero modulo bias using hardware crypto (`crypto.getRandomValues` / `node:crypto`).
+- **💻 CLI Ready:** Instant terminal generation with `npx idchunk`.
 - **📦 Zero Dependencies & Dual Module:** Full support for both **ESM** (`import`) and **CommonJS** (`require`).
 - **🔷 TypeScript First:** Full type definitions included out of the box.
 - **🎨 Built-in Presets:** Quick helpers for `numeric` (OTPs), `alphanumeric`, `hex`, `urlSafe`, and `batch` generation.
@@ -20,7 +22,37 @@
 
 ---
 
-## 📦 Installation
+## 💻 CLI Usage (No Install Required)
+
+Generate IDs directly from your terminal using `npx`:
+
+```bash
+# Standard 10-character URL-safe ID
+npx idchunk
+# Output: aZ8_-kL2pQ
+
+# 16-character ID
+npx idchunk -l 16
+
+# 6-digit Numeric OTP / PIN
+npx idchunk -n -l 6
+# Output: 492810
+
+# Hexadecimal ID
+npx idchunk -x -l 8
+# Output: 3f8a12bc
+
+# Custom Alphabet
+npx idchunk -c "ABC123" -l 8
+# Output: 1A23BCAB
+
+# Generate 5 Unique IDs in Batch
+npx idchunk -b 5
+```
+
+---
+
+## 📦 Library Installation
 
 ```bash
 npm install idchunk
@@ -100,7 +132,7 @@ console.log(ids);
 
 ## 📖 API Reference
 
-| Method | Parameters | Return Type | Description |
+| Method / Command | Parameters | Return Type | Description |
 | :--- | :--- | :--- | :--- |
 | `idchunk(length?, alphabet?)` | `length?: number` (default: 10)<br>`alphabet?: string` | `string` | Generates a random ID. |
 | `idchunk.numeric(length?)` | `length?: number` (default: 6) | `string` | Generates numbers-only ID (e.g. OTPs). |
@@ -109,6 +141,28 @@ console.log(ids);
 | `idchunk.hex(length?)` | `length?: number` (default: 8) | `string` | Generates hexadecimal `[0-9a-f]` ID. |
 | `idchunk.custom(alphabet, length?)`| `alphabet: string`<br>`length?: number` (default: 10) | `(length?) => string` | Returns a reusable custom generator function. |
 | `idchunk.batch(count, length?, alphabet?)` | `count: number`<br>`length?: number`<br>`alphabet?: string` | `string[]` | Returns an array of unique random IDs. |
+
+---
+
+## ⚡ Performance Benchmarks
+
+Run benchmarks locally:
+
+```bash
+npm run bench
+```
+
+```
+⚡ idchunk Performance Benchmark Suite
+============================================================
+  • idchunk() [default, length=10]     :      285,494 ops/sec
+  • idchunk(16) [URL-safe, length=16]  :      274,434 ops/sec
+  • idchunk.numeric(6) [OTP]           :      288,593 ops/sec
+  • idchunk.alphanumeric(12)           :      274,133 ops/sec
+  • idchunk.hex(16)                    :      272,870 ops/sec
+  • idchunk.custom() factory [8 hex]   :      283,762 ops/sec
+============================================================
+```
 
 ---
 
