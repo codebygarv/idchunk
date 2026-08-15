@@ -1,6 +1,6 @@
 {
   "name": "idchunk",
-  "version": "2.3.0",
+  "version": "2.5.0",
   "description": "Tiny, Fast & Customizable ID Generator",
   "main": "src/index.js",
   "module": "src/index.mjs",
