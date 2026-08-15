@@ -5,6 +5,9 @@
   "main": "src/index.js",
   "module": "src/index.mjs",
   "types": "src/index.d.ts",
+  "bin": {
+    "idchunk": "bin/idchunk.js"
+  },
   "exports": {
     ".": {
       "types": "./src/index.d.ts",
@@ -13,12 +16,13 @@
     }
   },
   "files": [
+    "bin",
     "src",
     "README.md",
     "LICENSE"
   ],
   "scripts": {
-    "test": "node --test test/index.test.js",
+    "test": "node --test test/*.test.js",
     "release": "npm version"
   },
   "keywords": [
@@ -30,7 +34,8 @@
     "shortid",
     "random",
     "unique-id",
-    "otp"
+    "otp",
+    "cli"
   ],
   "author": "Garv Thakral",
   "license": "MIT",
